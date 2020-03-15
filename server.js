@@ -4,8 +4,8 @@ const cors = require('cors');
 
 //require Route files
 const indexRouter = require('./app/routes/index')
-const stationsRouter = require('./app/routes/station')
-const carsRouter = require('./app/routes/cars')
+const stationsRouter = require('./app/routes/stations')
+// const carsRouter = require('./app/routes/cars')
 
 //reqire DB CONfig file
 const db = require('./config/db')

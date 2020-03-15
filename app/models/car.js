@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const carSchema = new mongoose.Schema({
-    brand: String,
-    type: String,
-
+    brand: {
+        type: String,
+        defult: ''
+    },
+    type: {
+        type: String,
+        defult: ''
+    }
 
 
 }, {
