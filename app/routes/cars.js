@@ -1,15 +1,9 @@
-const express = require('express')
-const Station = require('../models/station')
-const Car = require('../models/car')
-
+const express = require("express");
+const Car = require("../models/car");
 // initiate a Router (mini app that only handles routes)
 const router = express.Router();
 
 //create cars
-
-
-
-
 
 //create
 router.post("/create/car", (req, res) => {
@@ -85,6 +79,5 @@ router.patch("/api/car/:id", (req, res) => {
       res.status(500).json({ error: error });
     });
 });
-
 
 module.exports = router;

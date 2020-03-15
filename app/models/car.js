@@ -8,13 +8,8 @@ const carSchema = new Schema(
       default: ""
     },
     type: {
-
-        type: String,
-        defult: ''
-    },
-    available: {
-        available: Boolean,
-        defult: false
+      type: String,
+      default: ""
     }
   },
   {
@@ -22,7 +17,5 @@ const carSchema = new Schema(
   }
 );
 
-
 const Car = mongoose.model("Car", carSchema);
 module.exports = Car;
-
