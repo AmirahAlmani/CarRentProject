@@ -10,7 +10,6 @@ const stationSchema = new Schema({
       ref: "Car"
     }
   ]
-  
 });
 
 const Station = mongoose.model("Station", stationSchema);
