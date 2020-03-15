@@ -1,20 +1,18 @@
 const express = require('express')
-const Station = require('../models/station')
-const Car = require('../models/car')
+// const Station = require('../models/station')
+const User = require('../models/user')
 // initiate a Router (mini app that only handles routes)
 const router = express.Router();
-
-//create cars
 
 
 //============ GET ===============
 
 
-router.get('/get/car', (req, res) => {
-    Car.find()
+router.get('/get/user', (req, res) => {
+    User.find()
         // Return all Cars as an Array
-        .then((allCars) => {
-            res.status(200).json({ Cars: allCars });
+        .then((allUser) => {
+            res.status(200).json({ Users: allUser });
         })
         // Catch any errors that might occur
         .catch((error) => {
@@ -23,22 +21,20 @@ router.get('/get/car', (req, res) => {
 });
 
 
-
-
 //============ POST ===============
 
 
-router.post('/create/car', (req, res) => {
+router.post('/create/user', (req, res) => {
     console.log('Post/create')
-    const newCar = req.body.car
-    Car.create(newCar, (err, result) => {
+    const newUser = req.body.user
+    User.create(newUser, (err, result) => {
         if (err) {
             console.log(err)
 
         }
         else {
             console.log(result)
-            res.send('create' + newCar)
+            res.send('create' + newUser)
         }
     })
 })
@@ -46,12 +42,12 @@ router.post('/create/car', (req, res) => {
 
 //============ Update =============
 
-router.patch('/update/Car/:id', (req, res) => {
-    Car.findById(req.params.id)
-        .then((car) => {
-            if (car) {
+router.patch('/update/user/:id', (req, res) => {
+    User.findById(req.params.id)
+        .then((user) => {
+            if (user) {
                 // Pass the result of Mongoose's `.update` method to the next `.then`
-                return car.update(req.body.car);
+                return user.update(req.body.user);
             } else {
                 // If we couldn't find a document with the matching ID
                 res.status(404).json({
@@ -76,12 +72,12 @@ router.patch('/update/Car/:id', (req, res) => {
 
 //=========== Delete ===========================
 
-router.delete('/delete/car/:id', (req, res) => {
-    Car.findById(req.params.id)
-        .then((car) => {
-            if (car) {
+router.delete('/delete/user/:id', (req, res) => {
+    User.findById(req.params.id)
+        .then((user) => {
+            if (user) {
                 // Pass the result of Mongoose's `.delete` method to the next `.then`
-                return car.remove();
+                return user.remove();
             } else {
                 // If we couldn't find a document with the matching ID
                 res.status(404).json({

@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const stationSchema = new mongoose.Schema({
+
+const stationSchema = new Schema({
     name: { type: String, required: true },
     location: String,
     cars: [
@@ -8,15 +9,10 @@ const stationSchema = new mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: "Car"
         }
-    ],
+    ]
+});
 
-
-}, {
-    timestamps: true,
-})
-
-
-const Station = mongoose.model('Station', stationSchema)
+const Station = mongoose.model("Station", stationSchema);
 module.exports = Station;
 
 
