@@ -9,6 +9,7 @@ const stationSchema = new mongoose.Schema({
             ref: "Car"
         }
     ],
+    keyCode: Number,
 
 
 }, {

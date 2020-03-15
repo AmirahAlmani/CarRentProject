@@ -9,12 +9,13 @@ const carSchema = new mongoose.Schema({
     type: {
         type: String,
         defult: ''
+    },
+    reserve:{
+        type:Boolean,
+         default: false
     }
-
-
-}, {
-    timestamps: true,
-})
-
+}, {timestamps: true,
+        })
+        
 const Car = mongoose.model('Car', carSchema)
 module.exports = Car;
