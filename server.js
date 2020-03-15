@@ -3,9 +3,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 //require Route files
-const indexRouter = require("./app/routes/index");
-const stationsRouter = require("./app/routes/stations");
-const carsRouter = require("./app/routes/cars");
+
+const indexRouter = require('./app/routes/index')
+const stationsRouter = require('./app/routes/stations')
+const carsRouter = require('./app/routes/cars')
+
 
 //reqire DB CONfig file
 const db = require("./config/db");
@@ -28,9 +30,12 @@ app.use(
 );
 
 /**routes */
-app.use(indexRouter);
-app.use(stationsRouter);
-app.use(carsRouter);
+
+app.use(indexRouter)
+app.use(stationsRouter)
+app.use(carsRouter)
+
+
 
 // C U R D
 //...R
