@@ -17,7 +17,7 @@ router.post("/create/car", (req, res) => {
     });
 });
 
-//get all
+//get alll
 router.get("/get/cars", (req, res) => {
   Car.find()
     // Return all Articles as an Array
