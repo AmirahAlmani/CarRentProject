@@ -28,11 +28,11 @@ router.get("/api/stations", (req, res) => {
  * Description .... get any article by Article Id
  */
   router.get('/api/articles/:id',(req,res)=>{
-    Article.findById(req.params.id)
-    .then((article)=>{
+    Station.findById(req.params.id)
+    .then((station)=>{
     //   res.status(200).json({article: article})
-    if(article){
-        res.status(200).json({article: article})}
+    if(station){
+        res.status(200).json({station: station})}
         else{
             res.status(404).json({
                 error: {
