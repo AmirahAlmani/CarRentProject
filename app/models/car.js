@@ -1,12 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const carSchema = new mongoose.Schema({
+const carSchema = new Schema(
+  {
     brand: {
-        type: String,
-        defult: ''
+      type: String,
+      default: ""
     },
     type: {
+
         type: String,
         defult: ''
     },
@@ -14,13 +16,13 @@ const carSchema = new mongoose.Schema({
         available: Boolean,
         defult: false
     }
+  },
+  {
+    timestamps: true
+  }
+);
 
 
-}, {
-    timestamps: true,
-})
-
-
-
-const Car = mongoose.model('Car', carSchema)
+const Car = mongoose.model("Car", carSchema);
 module.exports = Car;
+
