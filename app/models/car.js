@@ -5,16 +5,18 @@ const carSchema = new Schema(
   {
     brand: {
       type: String,
-      default: ""
+      default: 'Toyota'
+      
     },
     type: {
-
         type: String,
-        defult: ''
+        default: 'sedan car'
+        
     },
-    available: {
-        available: Boolean,
-        defult: false
+    isReserved: {
+        type: Boolean,
+        default: false
+       
     }
   },
   {
