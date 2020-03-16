@@ -4,7 +4,6 @@ const Station = require('../models/station')
 // initiate a Router (mini app that only handles routes)
 const router = express.Router();
 
-
 //create
 router.post("/api/car", (req, res) => {
     Car.create(req.body.car)

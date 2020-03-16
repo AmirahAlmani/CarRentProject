@@ -15,4 +15,3 @@ const stationSchema = new Schema({
 const Station = mongoose.model("Station", stationSchema);
 module.exports = Station;
 
-

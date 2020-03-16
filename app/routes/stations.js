@@ -98,7 +98,6 @@ router.patch('/api/stations/id:', (req, res) => {
         })
 })
 
-
 /**
 * Action ....DESTROY
 * Method .....DELETE  
