@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -6,10 +7,10 @@ const userSchema = new mongoose.Schema({
     email: String,
     password: Number,
     payment: {
-        cardNamuber: { type: Number, required: true },
-        cardName: { type: String, required: true },
-        cardExpiredDate: { type: Number, required: true },
-        cvv: { type: Number, required: true },
+        cardNmuber: Number,
+        cardName: String,
+        cardExpiredDate: Date,
+        cvv: Number
 
     }
 
