@@ -47,6 +47,7 @@ router.post("/api/car2", (req, res) => {
             });
         });
 });
+
 //get all
 router.get("/api/cars", (req, res) => {
     Car.find()
