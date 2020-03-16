@@ -3,6 +3,7 @@ const Station = require('../models/station')
 const Car = require('../models/car')
 // initiate a Router (mini app that only handles routes)
 const router = express.Router();
+
 /**
  * Action ....READ
  * Method .....GET
@@ -10,7 +11,7 @@ const router = express.Router();
  * Description .... get ALL stations
  */
 router.get("/api/stations", (req, res) => {
-    res.json({ mesaage: "get all stations" });
+    // res.json({ mesaage: "get all stations" });
     Station.find()
         .then(allStations => {
             res.status(200).json({ stations: allStations });
@@ -45,6 +46,7 @@ router.get('/api/stations/:id', (req, res) => {
         })
         .catch((error) => {
             res.status(500).json({ error: error })
+
         })
 })
 /**
@@ -54,7 +56,8 @@ router.get('/api/stations/:id', (req, res) => {
 *  Description .... create a new article
 */
 router.post('/api/stations', (req, res) => {
-    station.create(req.body.station)
+    Station.create(req.body.station)
+
         .then((newStation) => {
             res.status(201).json({ newStation: newStation })
         })
@@ -70,6 +73,7 @@ router.post('/api/stations', (req, res) => {
  */
 //replaace every thing on object for put 
 // patch 
+
 router.patch('/api/stations/id:', (req, res) => {
     Station.findById(res.params.id)
         .then((station) => {
@@ -80,7 +84,7 @@ router.patch('/api/stations/id:', (req, res) => {
                 res.status(404).json({
                     error: {
                         name: 'DocumentNoFind',
-                        message: 'the provider ID does\'t match any aocuments'
+                        message: 'the provider ID does\'t match any documents'
                     }
                 });
             }
@@ -93,17 +97,21 @@ router.patch('/api/stations/id:', (req, res) => {
             res.status(500).json({ error: error })
         })
 })
+
+
 /**
 * Action ....DESTROY
 * Method .....DELETE  
 * URI ........./api/stations/ any id
 *  Description .... Delete station by id 
 */
-router.delete('/api/articles/:id', (req, res) => {
+router.delete('/api/stations/:id', (req, res) => {
     Station.findById(req.params.id)
         .then((station) => {
             if (station) {
+
                 return station.remove()
+
             }
             else {
                 res.status(404).json({
@@ -115,10 +123,12 @@ router.delete('/api/articles/:id', (req, res) => {
             }
         }).then(() => {
             //  if the deletion sucess return 204 and no json
+
             res.status(204).end()
         })
         .catch((error) => {
             res.status(500).json({ error: error })
         })
 })
+
 module.exports = router;
