@@ -8,7 +8,7 @@ const router = express.Router();
 //============ GET ===============
 
 
-router.get('/get/user', (req, res) => {
+router.get('/api/user', (req, res) => {
     User.find()
         // Return all Cars as an Array
         .then((allUser) => {
@@ -24,7 +24,7 @@ router.get('/get/user', (req, res) => {
 //============ POST ===============
 
 
-router.post('/create/user', (req, res) => {
+router.post('/api/user', (req, res) => {
     console.log('Post/create')
     const newUser = req.body.user
     User.create(newUser, (err, result) => {
@@ -42,7 +42,7 @@ router.post('/create/user', (req, res) => {
 
 //============ Update =============
 
-router.patch('/update/user/:id', (req, res) => {
+router.patch('/api/user/:id', (req, res) => {
     User.findById(req.params.id)
         .then((user) => {
             if (user) {
@@ -72,7 +72,7 @@ router.patch('/update/user/:id', (req, res) => {
 
 //=========== Delete ===========================
 
-router.delete('/delete/user/:id', (req, res) => {
+router.delete('/api/user/:id', (req, res) => {
     User.findById(req.params.id)
         .then((user) => {
             if (user) {

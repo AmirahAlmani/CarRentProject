@@ -6,6 +6,7 @@ const cors = require('cors');
 const indexRouter = require('./app/routes/index')
 const stationsRouter = require('./app/routes/stations')
 const carsRouter = require('./app/routes/cars')
+const userRouter = require('./app/routes/users')
 
 //reqire DB CONfig file
 const db = require('./config/db')
@@ -32,6 +33,7 @@ app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${reactPor
 app.use(indexRouter)
 app.use(stationsRouter)
 app.use(carsRouter)
+app.use(userRouter)
 
 
 // C U R D

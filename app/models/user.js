@@ -6,13 +6,13 @@ const userSchema = new mongoose.Schema({
     phone: Number,
     email: String,
     password: Number,
-    // payment: {
-    //     cardNmuber: { type: Number, required: true },
-    //     cardName: { type: String, required: true },
-    //     cardExpiredDate: { type: Number, required: true },
-    //     cvv: { type: Number, required: true },
+    payment: {
+        cardNmuber: Number,
+        cardName: String,
+        cardExpiredDate: Date,
+        cvv: Number
 
-    // }
+    }
 
 
 }, {
