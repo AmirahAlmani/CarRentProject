@@ -10,7 +10,7 @@ const carSchema = new Schema(
     },
     type: {
         type: String,
-        default: 'sedan car'
+        default: 'family'
         
     },
     isReserved: {
