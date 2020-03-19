@@ -7,21 +7,6 @@ const router = express.Router();
 
 //create
 router.post("/api/car", (req, res) => {
-    Car.create(req.body.car)
-        .then(newCar => {
-            res.status(201).json({
-                car: newCar
-            });
-        })
-
-        .catch(error => {
-            res.status(500).json({
-                error: error
-            });
-        });
-});
-
-router.post("/api/car2", (req, res) => {
     // {name:'asdasd , modal:'asdasd}
     console.log(req.body);
 
@@ -47,7 +32,6 @@ router.post("/api/car2", (req, res) => {
             });
         });
 });
-
 //get all
 router.get("/api/cars", (req, res) => {
     Car.find()
@@ -66,20 +50,37 @@ router.get("/api/cars", (req, res) => {
 });
 
 //Delete
-router.delete("/api/car/:id", (req, res) => {
-    Car.findById(req.params.id)
-        .then(Cars => {
-            if (Cars) {
-                return Cars.remove();
-            } else {
-                res.status(404).json({
-                    error: {
-                        name: "DocumentNotFound",
-                        message: "The provided ID dosnot match any documents"
-                    }
-                });
-            }
+router.delete("/api/car/:id/:statinId", (req, res) => {
+    // Station.findOne({
+    //         // 'A'
+    //         name: req.body.stationName
+    //     })
+    console.log(req.params)
+    Station.findById(req.params.statinId)
+        .then(oneStationObj => {
+            // console.log('respond:',cres);
+            //  const carDelete = res.station.cars.map((car)=>{
+            //    return car._id ===id
+            console.log('oneStationObj 1:', oneStationObj);
+
+            const deletCar = Car.findById(req.params.id)
+            oneStationObj.cars.splice(deletCar, 1)
+            console.log('oneStationObj 2:', oneStationObj);
+            oneStationObj.save()
         })
+        // Car.findById(req.params.id)
+        //     .then(Cars => {
+        //         if (Cars) {
+        //             return Cars.remove();
+        //         } else {
+        //             res.status(404).json({
+        //                 error: {
+        //                     name: "DocumentNotFound",
+        //                     message: "The provided ID dosnot match any documents"
+        //                 }
+        //             });
+        //         }
+        //     })
         .then(() => {
             res.status(204).end();
         })

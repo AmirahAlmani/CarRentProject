@@ -21,6 +21,7 @@ router.get("/api/stations", (req, res) => {
         });
 });
 
+
 //........................................//
 /**
  * Action ....SHOW
@@ -105,7 +106,7 @@ router.patch('/api/stations/id:', (req, res) => {
 * URI ........./api/stations/ any id
 *  Description .... Delete station by id 
 */
-router.delete('/api/stations/:id', (req, res) => {
+router.delete('/api/articles/:id', (req, res) => {
     Station.findById(req.params.id)
         .then((station) => {
             if (station) {

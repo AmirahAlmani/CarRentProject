@@ -5,15 +5,18 @@ const carSchema = new Schema(
     {
         brand: {
             type: String,
-            default: ""
+            default: 'Toyota'
+
         },
         type: {
             type: String,
-            defult: ''
+            default: 'family'
+
         },
-        available: {
-            available: Boolean,
-            defult: false
+        isReserved: {
+            type: Boolean,
+            default: false
+
         }
     },
     {
@@ -22,9 +25,7 @@ const carSchema = new Schema(
 );
 
 
-
-
-const Car = mongoose.model('Car', carSchema)
+const Car = mongoose.model("Car", carSchema);
 module.exports = Car;
 
 
